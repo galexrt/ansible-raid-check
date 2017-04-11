@@ -1,2 +1,10 @@
 ---
 # defaults file for ansible-raid-check
+raid_check_enabled: true
+raid_check_check: check
+raid_check_nice: low
+# To check devs /dev/md0 and /dev/md3, use "md0 md3"
+raid_check_check_devs: ""
+raid_check_repair_devs: ""
+raid_check_skip_devs: ""
+raid_check_maxconcurrent: 1

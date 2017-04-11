@@ -1,2 +1,26 @@
 ---
 # tasks file for ansible-raid-check
+- name: Set config option
+  lineinfile:
+    path: /etc/sysconfig/raid-check
+    regex: "^{{ item.0 }}={{ item.1|quote }}"
+    line: "^{{ item.0 }}={{ item.1|quote }}"
+  with_together:
+    - [
+      "ENABLED",
+      "CHECK",
+      "NICE",
+      "CHECK_DEVS",
+      "REPAIR_DEVS",
+      "SKIP_DEVS",
+      "MAXCONCURRENT"
+    ]
+    - [
+      "{{ raid_check_enabled }}",
+      "{{ raid_check_check }}",
+      "{{ raid_check_nice }}",
+      "{{ raid_check_check_devs }}",
+      "{{ raid_check_repair_devs }}",
+      "{{ raid_check_skip_devs }}",
+      "{{ raid_check_maxconcurrent }}"
+    ]
