@@ -24,3 +24,8 @@
       "{{ raid_check_skip_devs }}",
       "{{ raid_check_maxconcurrent }}"
     ]
+
+- name: Set time for cronjob execution
+  template:
+    src: "raid-check.j2"
+    dest: "/etc/cron.d/raid-check"

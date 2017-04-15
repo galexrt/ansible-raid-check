@@ -8,3 +8,4 @@ raid_check_check_devs: ""
 raid_check_repair_devs: ""
 raid_check_skip_devs: ""
 raid_check_maxconcurrent: 1
+raid_check_cron_time: "0 1 * *"
