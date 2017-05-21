@@ -3,8 +3,8 @@
 - name: Set config option
   lineinfile:
     path: /etc/sysconfig/raid-check
-    regex: "^{{ item.0 }}={{ item.1|quote }}"
-    line: "^{{ item.0 }}={{ item.1|quote }}"
+    regexp: '^{{ item.0 }}=.*'
+    line: "{{ item.0 }}={{ item.1|string|quote }}"
   with_together:
     - [
       "ENABLED",
